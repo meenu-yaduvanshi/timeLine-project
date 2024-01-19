@@ -8,11 +8,12 @@ import events from "./events.json"
 const App = () => {
   return (<div>
     <h1 className="header">TimeLine</h1>
-    {events.map(event => {
-      return <TimeLine year={event.year} event={event.event} key={event.year} />
-    })
+    {events.filter(event => {
+      return event.year > 2010
+    }).map((event) =>
+      <TimeLine year={event.year} event={event.event} key={event.year} />
+    )
     }
-
   </div>)
 }
 export default App
